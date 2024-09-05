@@ -1,0 +1,71 @@
+x      {% extends "base.html" %}
+      {% load static %}
+      {% block link %}
+      
+<style>
+    .icon-hover:hover {
+        border-color: #3b71ca !important;
+        background-color: white !important;
+        color: #3b71ca !important;
+      }
+      
+      .icon-hover:hover i {
+        color: #3b71ca !important;
+      }
+</style>
+
+      {% endblock link %}
+		<!-- End Header/Navigation -->
+		 {% block content %}
+          
+    
+          <!-- content -->
+          <section class="py-5">
+            <div class="container">
+              <div class="row gx-5">
+                <aside class="col-lg-6">
+                  <div class="border rounded-4 mb-3 d-flex justify-content-center">
+                    {% if prod.images %}
+                    <img src="{{ prod.images.url }}" alt="{{ prod.product_name }}" style="max-width: 300px;">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                  </div>
+
+                  <!-- thumbs-wrap.// -->
+                  <!-- gallery-wrap .end// -->
+                </aside>
+                <main class="col-lg-6">
+                  <div class="ps-lg-3">
+                    <h4 class="title text-dark">
+                      {{prod.product_name}}
+                    </h4>
+          
+                    <div class="my-4">
+                      <span class="h5">₹{{prod.price}}</span>
+                      <span class="text-muted"></span>
+                    </div>
+          
+                    <p>
+                      {{prod.description  }}
+                    </p>
+          
+
+                    <a href="#" class="btn btn-warning shadow-0 mt-5"> Buy now </a>
+                  </div>
+                </main>
+              </div>
+            </div>
+          </section>
+          <!-- content -->
+          
+
+          
+          {% include "footer.html" %}
+	
+		{% endblock content %}
+		{% block script %}
+	
+		<script src="{% static "js/script.js" %}"></script>
+      
+       {% endblock script %}
